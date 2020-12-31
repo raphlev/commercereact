@@ -4,11 +4,28 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 npx create-react-app ./
 
+## Application Templates
+
+ECommerce Web Shop - Build & Deploy an Amazing App | React.js, Commerce.js, Stripe
+https://www.youtube.com/watch?v=377AQ0y6LPA
+
+
 ## Dependencies
 
 npm install @material-ui/core @material-ui/icons @chec/commerce.js @stripe/react-stripe-js @stripe/stripe-js react-router-dom react-hook-form
 
 
+## commerce.js
+Register and Get Public Key from:
+https://dashboard.chec.io/settings/developer
+Set it to .env file:
+REACT_APP_CHEC_PUBLIC_KEY=xxxxxxxxxx
+
+Add shipping zone with shipping price: USA & Europe
+https://dashboard.chec.io/settings/shipping
+
+Add products:
+https://dashboard.chec.io/products
 
 
 ## Available Scripts
