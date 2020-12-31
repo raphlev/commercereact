@@ -28,6 +28,8 @@ Add products:
 https://dashboard.chec.io/products
 
 
+1:13:52
+
 ## Available Scripts
 
 In the project directory, you can run:
