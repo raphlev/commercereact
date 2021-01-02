@@ -28,7 +28,7 @@ Add products:
 https://dashboard.chec.io/products
 
 
-1:13:52
+1:37
 
 ## Available Scripts
 
