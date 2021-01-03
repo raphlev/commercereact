@@ -58,8 +58,8 @@ const App = () => {
 
   return (
     <Router>
-      <CssBaseline />
-      <div style={{ display: "flex" }}>
+      <div style={{ display: 'flex' }}>
+        <CssBaseline />
         <Navbar totalItems={cart.total_items} />
         <Switch>
           <Route exact path="/">
