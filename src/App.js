@@ -29,11 +29,11 @@ const App = () => {
     setCart(response.cart);
   }
 
-  const handleUpdateCartQty = async (productId, quantity) => {
-    const { cart } = await commerce.cart.update(productId, {quantity});
+  const handleUpdateCartQty = async (lineItemId, quantity) => {
+    const { cart } = await commerce.cart.update(lineItemId, { quantity: quantity });
 
     setCart(cart);
-  }
+  };
 
   const handleRemoveFromCart = async (productId) => {
     const { cart } = await commerce.cart.remove(productId);
@@ -57,8 +57,8 @@ const App = () => {
   console.log(cart);
 
   return (
-    // <CssBaseline />
     <Router>
+      <CssBaseline />
       <div style={{ display: "flex" }}>
         <Navbar totalItems={cart.total_items} />
         <Switch>

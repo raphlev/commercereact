@@ -24,11 +24,7 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
             here these handle* event handler are already passed from parent app component, 
             and must be passed below to CartItem components
             Another solution would be to use React Context instead of props drilling making the code easier */}
-              <CartItem
-                item={item}
-                onUpdateCartQty={handleUpdateCartQty}
-                onRemoveFromCart={handleRemoveFromCart}
-              />
+              <CartItem item={item} onUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart} />
             </Grid>
           ))}
         </Grid>
