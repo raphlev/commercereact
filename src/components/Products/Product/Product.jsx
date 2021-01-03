@@ -12,28 +12,16 @@ const Product = ({ product, onAddToCart }) => {
 
   return (
     <Card className={classes.root}>
-      <CardMedia
-        className={classes.media}
-        image={product.media.source}
-        title={product.name}
-      />
+      <CardMedia className={classes.media} image={product.media.source} title={product.name} />
       <CardContent>
-        <div className={classes.CardContent}>
-          <Typography gutterBottom variant="h5">
-            {product.name}
-          </Typography>
-          <Typography gutterBottom variant="h5">
-            {product.price.formatted_with_symbol}
-          </Typography>
+        <div className={classes.cardContent}>
+          <Typography gutterBottom variant="h5" component="h2"> {product.name} </Typography>
+          <Typography gutterBottom variant="h5" component="h2"> {product.price.formatted/*_with_symbol*/} </Typography>
         </div>
         {/* product.description is HTML tag value, 
         to render it as HTML use props dangerouslySetInnerHTML like below
         instead of Typography tag element value */}
-        <Typography
-          dangerouslySetInnerHTML={{ __html: product.description }}
-          variant="body2"
-          color="textSecondary"
-        />
+        <Typography dangerouslySetInnerHTML={{ __html: product.description }} variant="body2" color="textSecondary" component="p" />
         {/*product.description}
         </Typography>  */}
       </CardContent>
