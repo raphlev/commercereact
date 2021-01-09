@@ -7,8 +7,10 @@ npx create-react-app ./
 ## Application Templates
 
 ECommerce Web Shop - Build & Deploy an Amazing App | React.js, Commerce.js, Stripe
-https://www.youtube.com/watch?v=377AQ0y6LPA
-https://github.com/adrianhajdin/project_e_commerce
+Youtube: https://www.youtube.com/watch?v=377AQ0y6LPA
+Github: https://github.com/adrianhajdin/project_e_commerce
+Styles: https://gist.github.com/adrianhajdin/9867aefce5318f27c95990553f428c6e
+Icon Image: https://i.ibb.co/Qp1SXBw/commerce.png
 
 ## Dependencies
 
@@ -28,7 +30,7 @@ Add products:
 https://dashboard.chec.io/products
 
 
-1:38
+1:48
 
 ## Available Scripts
 
