@@ -16,6 +16,8 @@ Icon Image: https://i.ibb.co/Qp1SXBw/commerce.png
 
 npm install @material-ui/core @material-ui/icons @chec/commerce.js @stripe/react-stripe-js @stripe/stripe-js react-router-dom react-hook-form
 
+See web site: https://react-hook-form.com/
+
 
 ## commerce.js
 Register and Get Public Key from:
@@ -30,7 +32,7 @@ Add products:
 https://dashboard.chec.io/products
 
 
-1:48
+2:51:55 beg of stripes..
 
 ## Available Scripts
 
