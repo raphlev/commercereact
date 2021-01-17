@@ -14,6 +14,7 @@ const AddressForm = ({ checkoutToken, next }) => {
   const [shippingOptions, setShippingOptions] = useState([]);
   const [shippingOption, setShippingOption] = useState('');
   const methods = useForm({
+    // https://react-hook-form.com/api/#useForm  default values for hook useForm are displayed at first render
     mode: 'onSubmit',
     reValidateMode: 'onChange',
     defaultValues: {
