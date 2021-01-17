@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { CssBaseline } from "@material-ui/core";
-//import Products from './components/Products/Products';
-//import Navbar from './components/Navbar/Navbar';
+import { CssBaseline } from '@material-ui/core';
+// import Products from './components/Products/Products';
+// import Navbar from './components/Navbar/Navbar';1
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { commerce } from './lib/commerce';
 import { Products, Navbar, Cart, Checkout } from './components';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -17,8 +17,8 @@ const App = () => {
   };
 
   const fetchCart = async () => {
-    //const cart = await commerce.cart.retrieve();
-    //setCart(cart);
+    // const cart = await commerce.cart.retrieve();
+    // setCart(cart);
     setCart(await commerce.cart.retrieve());
   };
 
@@ -27,25 +27,25 @@ const App = () => {
     const response = await commerce.cart.add(productId, quantity);
 
     setCart(response.cart);
-  }
+  };
 
   const handleUpdateCartQty = async (lineItemId, quantity) => {
-    const { cart } = await commerce.cart.update(lineItemId, { quantity: quantity });
+    const { response } = await commerce.cart.update(lineItemId, { quantity });
 
-    setCart(cart);
+    setCart(response);
   };
 
   const handleRemoveFromCart = async (productId) => {
-    const { cart } = await commerce.cart.remove(productId);
+    const { response } = await commerce.cart.remove(productId);
 
-    setCart(cart);
-  }
+    setCart(response);
+  };
 
   const handleEmptyCart = async () => {
-    const { cart } = await commerce.cart.empty();
+    const { response } = await commerce.cart.empty();
 
-    setCart(cart);
-  }
+    setCart(response);
+  };
 
   useEffect(() => {
     fetchProducts();
@@ -53,8 +53,8 @@ const App = () => {
   }, []); // dependency array set to empty array [] means that this function is called at start of the component when it renders - component didMount
 
   // For debug purposes to see what contains products array retrieved from commerce.js as properties to fetch in sub components
-  //console.log(products);
-  console.log(cart);
+  // console.log(products);
+  // console.log(cart);
 
   return (
     <Router>
@@ -66,10 +66,10 @@ const App = () => {
             <Products products={products} onAddToCart={handleAddToCart} />
           </Route>
           <Route exact path="/cart">
-            {/* We are passing props to children components, known as props drilling -
+            { /* We are passing props to children components, known as props drilling -
             here the handle* event handler must be passed below to Cart and CartItem components
-            Another solution would be to use React Context 
-            instead of props drilling making the code easier if we need to pâss more props below*/}
+            Another solution would be to use React Context
+            instead of props drilling making the code easier if we need to pâss more props below */ }
             <Cart
               cart={cart}
               handleUpdateCartQty={handleUpdateCartQty}
@@ -78,12 +78,12 @@ const App = () => {
             />
           </Route>
           <Route exact path="/checkout">
-            <Checkout cart={cart}/>
+            <Checkout cart={cart} />
           </Route>
         </Switch>
       </div>
     </Router>
   );
-}
+};
 
 export default App;

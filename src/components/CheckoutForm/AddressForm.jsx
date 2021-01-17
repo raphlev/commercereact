@@ -13,15 +13,31 @@ const AddressForm = ({ checkoutToken, next }) => {
   const [shippingSubdivision, setShippingSubdivision] = useState('');
   const [shippingOptions, setShippingOptions] = useState([]);
   const [shippingOption, setShippingOption] = useState('');
-  const methods = useForm();
+  const methods = useForm({
+    mode: 'onSubmit',
+    reValidateMode: 'onChange',
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      address1: '',
+      email: '',
+      city: '',
+      zip: '',
+    },
+    resolver: undefined,
+    context: undefined,
+    criteriaMode: 'firstError',
+    shouldFocusError: true,
+    shouldUnregister: true,
+  });
 
   // const countries = Object.entries(shippingCountries).map(([code, name]) => ({ id: code, label: name }));
-            // Object.entries = convert an object into a 2D array, 
-            // map = transform from a 2D array of code,name into an array of objects with id and label 
+  //  Object.entries = convert an object into a 2D array,
+  //  map = transform from a 2D array of code,name into an array of objects with id and label
   // console.log(countries); = array of countries with id and label
   // const subdivisions = Object.entries(shippingSubdivisions).map(([code, name]) => ({ id: code, label: name }));
-            // Object.entries = convert an object into a 2D array, 
-            // map = transform from a 2D array of code,name into an array of objects with id and label 
+  //  Object.entries = convert an object into a 2D array,
+  //  map = transform from a 2D array of code,name into an array of objects with id and label
   // console.log(subdivisions); = array of subdivisions with id and label
   // const options = shippingOptions.map((sO) => ({ id: sO.id, label: `${sO.description} - (${sO.price.formatted_with_symbol})` }));
   // console.log(options); = array of options with id and label being a template string of other attributes
@@ -44,7 +60,9 @@ const AddressForm = ({ checkoutToken, next }) => {
     const options = await commerce.checkout.getShippingOptions(checkoutTokenId, { country, region: stateProvince });
 
     setShippingOptions(options);
-    setShippingOption(options[0].id); // select the first shipping option available
+    if (options[0] != null) {
+      setShippingOption(options[0].id); // select the first shipping option available
+    }
   };
 
   useEffect(() => {
@@ -62,14 +80,15 @@ const AddressForm = ({ checkoutToken, next }) => {
   return (
     <>
       <Typography variant="h6" gutterBottom>Shipping address</Typography>
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
       <FormProvider {...methods}>
         {/*
-         hook Form needs a useForm method in which all the 6 Input proprties 
+         hook Form needs a useForm method in which all the 6 Input proprties
          are passed automatically in data argument
-         we also need to pass the next function with a new object as argument which contain 9 attributes 
+         we also need to pass the next function with a new object as argument which contain 9 attributes
          current 6 Input proprties by using the spread operator on input data argument
          + other propperties of the selected shipping country, subdivision and option
-         why do we use next function here that is passed from AdressForm component: 
+         why do we use next function here that is passed from AdressForm component:
          because we need to store in the state of Checkout component the shipping data which are passed from Checkout to the next step PaymentForm component
             */}
         <form onSubmit={methods.handleSubmit((data) => next({ ...data, shippingCountry, shippingSubdivision, shippingOption }))}>
@@ -83,7 +102,7 @@ const AddressForm = ({ checkoutToken, next }) => {
             <Grid item xs={12} sm={6}>
               <InputLabel>Shipping Country</InputLabel>
               <Select value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>
-                {/* {console.log(Object.entries(shippingCountries))} array of arrays of key,value pairs*/}
+                {/* {console.log(Object.entries(shippingCountries))} array of arrays of key,value pairs */}
                 {/* see console.log(countries) above */}
                 {Object.entries(shippingCountries).map(([code, name]) => ({ id: code, label: name })).map((item) => (
                   <MenuItem key={item.id} value={item.id}>{item.label}</MenuItem>

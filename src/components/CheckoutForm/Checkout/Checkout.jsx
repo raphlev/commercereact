@@ -12,7 +12,7 @@ const steps = ['Shipping address', 'Payment details'];
 const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [activeStep, setActiveStep] = useState(0);
-  const [shippingData, setShippingData] = useState({});//empty object
+  const [shippingData, setShippingData] = useState({});// empty object
   const classes = useStyles();
   const history = useHistory();
 
@@ -22,7 +22,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
   useEffect(() => {
     if (cart.id) {
       // inside useEffect we cannot use async unless it is a new function
-      // that means that we cannot have useEffect( async () => {},[]), so we 
+      // that means that we cannot have useEffect( async () => {},[]), so we
       // need to declare a new asyn function inside it and call it at the end
       const generateToken = async () => {
         try {
@@ -36,14 +36,13 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
       // Now we call the asyn func
       generateToken();
     }
-  }, [cart]); 
-  // called each time the cart is changing 
-  // to have re-generated token 
+  }, [cart]);
+  // called each time the cart is changing
+  // to have re-generated token
   // (if dependency array left empty [] that would be called only when component did mount)
   // reminder: step 1 component render JSX => then execute component did mount = useEffect
-  
 
-  // why do we use next function here that is passed to AdressForm component: 
+  // why do we use next function here that is passed to AdressForm component:
   // because we need to store in the state of Checkout component the shipping data which are passed from Checkout to the next step PaymentForm component
   const next = (data) => {
     setShippingData(data);
@@ -95,9 +94,9 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
               </Step>
             ))}
           </Stepper>
-          {/* only render the Form if we have the checkoutToken 
+          {/* only render the Form if we have the checkoutToken
               otherwise the Form will try to render without the Token */}
-          {activeStep === steps.length ? <Confirmation /> : checkoutToken && <Form />} 
+          {activeStep === steps.length ? <Confirmation /> : checkoutToken && <Form />}
         </Paper>
       </main>
     </>

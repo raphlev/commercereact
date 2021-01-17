@@ -7,8 +7,8 @@ const Product = ({ product, onAddToCart }) => {
   const classes = useStyles();
 
   // For debug purposes to see what contains a product as properties to fetch below
-  //console.log(product);
-  //return <div>test</div>
+  // console.log(product);
+  // return <div>test</div>
 
   return (
     <Card className={classes.root}>
@@ -18,16 +18,16 @@ const Product = ({ product, onAddToCart }) => {
           <Typography gutterBottom variant="h5" component="h2"> {product.name} </Typography>
           <Typography gutterBottom variant="h5" component="h2"> {product.price.formatted_with_symbol} </Typography>
         </div>
-        {/* product.description is HTML tag value, 
+        {/* product.description is HTML tag value,
         to render it as HTML use props dangerouslySetInnerHTML like below
         instead of Typography tag element value */}
         <Typography dangerouslySetInnerHTML={{ __html: product.description }} variant="body2" color="textSecondary" component="p" />
-        {/*product.description}
+        {/* product.description}
         </Typography>  */}
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions}>
-        {/* <IconButton aria-label="Add to Cart" onClick={onAddToCart}>*/}
-          <IconButton aria-label="Add to Cart" onClick={() => onAddToCart(product.id, 1)}>
+        {/* <IconButton aria-label="Add to Cart" onClick={onAddToCart}> */}
+        <IconButton aria-label="Add to Cart" onClick={() => onAddToCart(product.id, 1)}>
           <AddShoppingCart />
         </IconButton>
       </CardActions>

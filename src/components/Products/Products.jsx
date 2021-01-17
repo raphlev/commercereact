@@ -23,13 +23,13 @@ import useStyles from './styles';
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-deHWocg78ArMXJDNpKpTHrs0faNW6BAthlyNVudglw4BBm5OXQJREjqQMX9PBnqDe39NjkY&usqp=CAc",
   },
-];*/
+]; */
 
 const Products = ({ products, onAddToCart }) => {
   const classes = useStyles();
 
   if (!products.length) return <p>Loading...</p>;
-  
+
   return (
     <main className={classes.content}>
       <div className={classes.toolbar} />

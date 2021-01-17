@@ -3,10 +3,10 @@ import { useFormContext, Controller } from 'react-hook-form';
 import { TextField, Grid } from '@material-ui/core';
 
 /**
- * this is a customed TextField material-ui component that will be used 
+ * this is a customed TextField material-ui component that will be used
  * many times in AddressForm component 6 times (see FormInput in other component)
  * The state is automatically managed when we click submit on the form !!
- * 
+ *
  * custom component is useful to simplify the code in parent components
  */
 function FormInput({ name, label, required }) {
