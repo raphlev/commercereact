@@ -34,8 +34,10 @@ https://dashboard.chec.io/products
 
 2:51:55 beg of stripes..
 
-Navbar:
-https://medium.com/@tsubasakondo_36683/create-responsive-drawer-menu-with-react-material-ui-617a42764b69
+Drawer Navbar:
+- https://material-ui.com/components/drawers/
+- https://codesandbox.io/s/deopk?file=/demo.js:910-915
+- https://medium.com/@tsubasakondo_36683/create-responsive-drawer-menu-with-react-material-ui-617a42764b69
 
 
 ## Available Scripts
