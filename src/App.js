@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CssBaseline } from '@material-ui/core';
+// import { CssBaseline } from '@material-ui/core';
 // import Products from './components/Products/Products';
 // import Navbar from './components/Navbar/Navbar';1
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -77,30 +77,25 @@ const App = () => {
 
   return (
     <Router>
-      <div style={{ display: 'flex' }}>
-        <CssBaseline />
-        <Navbar totalItems={cart.total_items} />
-        <Switch>
-          <Route exact path="/">
-            <Products products={products} onAddToCart={handleAddToCart} />
-          </Route>
-          <Route exact path="/cart">
-            { /* We are passing props to children components, known as props drilling -
+      {/* <div style={{ display: 'flex' }}> */}
+      {/* <CssBaseline /> */}
+      <Navbar totalItems={cart.total_items} />
+      <Switch>
+        <Route exact path="/MyStore">
+          <Products products={products} onAddToCart={handleAddToCart} />
+        </Route>
+        <Route exact path="/MyStore/cart">
+          { /* We are passing props to children components, known as props drilling -
             here the handle* event handler must be passed below to Cart and CartItem components
             Another solution would be to use React Context
             instead of props drilling making the code easier if we need to pâss more props below */ }
-            <Cart
-              cart={cart}
-              handleUpdateCartQty={handleUpdateCartQty}
-              handleRemoveFromCart={handleRemoveFromCart}
-              handleEmptyCart={handleEmptyCart}
-            />
-          </Route>
-          <Route exact path="/checkout">
-            <Checkout cart={cart} />
-          </Route>
-        </Switch>
-      </div>
+          <Cart cart={cart} handleUpdateCartQty={handleUpdateCartQty} handleRemoveFromCart={handleRemoveFromCart} handleEmptyCart={handleEmptyCart} />
+        </Route>
+        <Route exact path="/MyStore/checkout">
+          <Checkout cart={cart} />
+        </Route>
+      </Switch>
+      {/* </div> */}
     </Router>
   );
 };

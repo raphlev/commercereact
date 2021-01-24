@@ -1,19 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import MenuIcon from '@material-ui/icons/Menu';
-import CloseIcon from '@material-ui/icons/Close';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import VisibleItemList from '../containers/VisibleItemList'
+import { CssBaseline, List, ListItem, ListItemText, Drawer, Hidden, AppBar, Toolbar, IconButton, Badge, Typography } from '@material-ui/core'; // MenuItem, Menu
+import { ShoppingCart, MenuIcon, CloseIcon } from '@material-ui/icons';
+import { Link, useLocation } from 'react-router-dom';
+
+import logo from '../../assets/commerce.png';
+
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
   root: {
@@ -71,9 +64,6 @@ return (
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
-		
-		
-		
           <IconButton
             color="inherit"
             aria-label="Open drawer"
@@ -98,8 +88,6 @@ return (
               </IconButton>
             </div>
           )}
-		  
-		  
         </Toolbar>
       </AppBar>
       

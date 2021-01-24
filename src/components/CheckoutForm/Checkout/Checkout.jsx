@@ -58,7 +58,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
         <Typography variant="subtitle2">Order ref: {order.customer_reference}</Typography>
       </div>
       <br />
-      <Button component={Link} variant="outlined" type="button" to="/">Back to home</Button>
+      <Button component={Link} variant="outlined" type="button" to="/MyStore">Back to home</Button>
     </>
   ) : (
     <div className={classes.spinner}>
@@ -71,7 +71,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
       <>
         <Typography variant="h5">Error: {error}</Typography>
         <br />
-        <Button component={Link} variant="outlined" type="button" to="/">Back to home</Button>
+        <Button component={Link} variant="outlined" type="button" to="/MyStore">Back to home</Button>
       </>
     );
   }
