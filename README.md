@@ -2,6 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# PWA
+
+https://create-react-app.dev/docs/making-a-progressive-web-app/
+
+Let the user knows when updates come in App:
+https://medium.com/better-programming/let-users-know-when-you-have-updated-your-service-worker-in-create-react-app-b0c2701995b3
+https://github.com/gglukmann/cra-sw
+
+
 npx create-react-app ./
 
 ## Application Templates
