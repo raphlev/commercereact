@@ -3,49 +3,16 @@ import React, { useState, useEffect } from 'react';
 // import Products from './components/Products/Products';
 // import Navbar from './components/Navbar/Navbar';1
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { Products, Navbar, Cart, Checkout } from './components';
-import { commerce } from './lib/commerce';
+
+import { fetchProducts } from './actions/products';
+import { fetchCart } from './actions/carts';
 
 const App = () => {
-  const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState({});
-
-  const fetchProducts = async () => {
-    const { data } = await commerce.products.list();
-
-    setProducts(data);
-  };
-
-  const fetchCart = async () => {
-    // const response = await commerce.cart.retrieve();
-    // setCart(response);
-    setCart(await commerce.cart.retrieve());
-  };
-
-  const handleAddToCart = async (productId, quantity) => {
-    // we can destructure it directly to { cart } or keep it like this:
-    const item = await commerce.cart.add(productId, quantity);
-
-    setCart(item.cart);
-  };
-
-  const handleUpdateCartQty = async (lineItemId, quantity) => {
-    const response = await commerce.cart.update(lineItemId, { quantity });
-
-    setCart(response.cart);
-  };
-
-  const handleRemoveFromCart = async (lineItemId) => {
-    const response = await commerce.cart.remove(lineItemId);
-
-    setCart(response.cart);
-  };
-
-  const handleEmptyCart = async () => {
-    const response = await commerce.cart.empty();
-
-    setCart(response.cart);
-  };
+  const products = useSelector((state) => state.products);
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
   /*
   const refreshCart = async () => {
@@ -67,8 +34,8 @@ const App = () => {
   }; */
 
   useEffect(() => {
-    fetchProducts();
-    fetchCart();
+    dispatch(fetchProducts());
+    dispatch(fetchCart());
   }, []); // dependency array set to empty array [] means that this function is called at start of the component when it renders - component didMount
 
   // For debug purposes to see what contains products array retrieved from commerce.js as properties to fetch in sub components
@@ -82,14 +49,14 @@ const App = () => {
       <Navbar totalItems={cart.total_items} />
       <Switch>
         <Route exact path="/MyStore">
-          <Products products={products} onAddToCart={handleAddToCart} />
+          <Products products={products} /> {/*  onAddToCart={handleAddToCart}  */}
         </Route>
         <Route exact path="/MyStore/cart">
           { /* We are passing props to children components, known as props drilling -
             here the handle* event handler must be passed below to Cart and CartItem components
             Another solution would be to use React Context
             instead of props drilling making the code easier if we need to pâss more props below */ }
-          <Cart cart={cart} handleUpdateCartQty={handleUpdateCartQty} handleRemoveFromCart={handleRemoveFromCart} handleEmptyCart={handleEmptyCart} />
+          <Cart cart={cart} /> {/* handleUpdateCartQty={handleUpdateCartQty} handleRemoveFromCart={handleRemoveFromCart} handleEmptyCart={handleEmptyCart} */}
         </Route>
         <Route exact path="/MyStore/checkout">
           <Checkout cart={cart} />

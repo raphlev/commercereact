@@ -41,7 +41,9 @@ Add products:
 https://dashboard.chec.io/products
 
 
-2:51:55 beg of stripes..
+1- 2:51:55 beg of stripes..
+2- Continuer redux App transformation: app.js est terminé. actions + reducer ok (voir reducer cart si besoin de modifier le state )- rest a faire: modiifer les composants et remplacer les appels aux variables d'ett et les fonctions en utilisant redux a la place.. voir react03 Memories
+3- Continuer redux + SW https://medium.com/better-programming/let-users-know-when-you-have-updated-your-service-worker-in-create-react-app-b0c2701995b3 + https://github.com/gglukmann/cra-sw
 
 ## Drawer Navbar todo.txt
 
