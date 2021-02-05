@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import { SW_INIT, SW_UPDATE } from './constants/actionTypes';
 
 import { reducers } from './reducers';
 import App from './App';
@@ -20,4 +21,7 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://cra.link/PWA
-serviceWorkerRegistration.register();
+serviceWorkerRegistration.register({
+  onSuccess: () => store.dispatch({ type: SW_INIT }),
+  onUpdate: (registration) => store.dispatch({ type: SW_UPDATE, payload: registration }),
+});
