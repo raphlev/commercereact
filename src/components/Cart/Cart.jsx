@@ -1,11 +1,15 @@
 import React from 'react';
 import { Container, Typography, Button, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
+import { handleEmptyCart } from '../../actions/carts';
 import useStyles from './styles';
 import CartItem from './CartItem/CartItem';
 
-const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart }) => {
+// const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart }) => {
+const Cart = ({ cart }) => {
+  const dispatch = useDispatch();
   const classes = useStyles();
 
   const EmptyCart = () => (
@@ -23,7 +27,8 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
             here these handle* event handler are already passed from parent app component,
             and must be passed below to CartItem components
             Another solution would be to use React Context instead of props drilling making the code easier */}
-            <CartItem item={item} onUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart} />
+            {/* <CartItem item={item} onUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart} /> */}
+            <CartItem item={item} />
           </Grid>
         ))}
       </Grid>
@@ -32,7 +37,8 @@ const Cart = ({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart
           Subtotal: {cart.subtotal.formatted_with_symbol}
         </Typography>
         <div>
-          <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={handleEmptyCart}>
+          {/* <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={handleEmptyCart}> */}
+          <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={() => dispatch(handleEmptyCart())}>
             Empty cart
           </Button>
           <Button component={Link} to="/MyStore/checkout" className={classes.checkoutButton} size="large" type="button" variant="contained" color="primary">

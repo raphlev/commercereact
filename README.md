@@ -48,8 +48,11 @@ https://dashboard.chec.io/products
 
 1- 2:51:55 beg of stripes..
 2- REDUX setup:
-   OK: app.js, actions, reducer (voir reducer cart si besoin de modifier le state )
-   A FAIRE: modiifer les composants et remplacer les appels aux variables d'etat avec un dispatch et les fonctions en utilisant redux a la place.. voir react03 Memories
+   OK: app.js, actions, reducer (voir reducer cart si besoin de modifier le state ), cart, paymentForm, checkoutform, ..
+   A FAIRE: 
+   - ajouter action/reucer pour Checkout checkoutToken+activeStep+shippingData
+   - comparer avec la version JSMastery..
+
 3- Service Worker Alert: https://medium.com/better-programming/let-users-know-when-you-have-updated-your-service-worker-in-create-react-app-b0c2701995b3 + https://github.com/gglukmann/cra-sw
    OK: add swalert actions, reducer, update app.js, service worker registration
 

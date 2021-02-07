@@ -1,9 +1,14 @@
 import React from 'react';
 import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core';
 import { AddShoppingCart } from '@material-ui/icons';
+import { useDispatch } from 'react-redux';
+
+import { handleAddToCart } from '../../../actions/carts';
 import useStyles from './styles';
 
-const Product = ({ product, onAddToCart }) => {
+// const Product = ({ product, onAddToCart }) => {
+const Product = ({ product }) => {
+  const dispatch = useDispatch();
   const classes = useStyles();
 
   // For debug purposes to see what contains a product as properties to fetch below
@@ -26,8 +31,8 @@ const Product = ({ product, onAddToCart }) => {
         </Typography>  */}
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions}>
-        {/* <IconButton aria-label="Add to Cart" onClick={onAddToCart}> */}
-        <IconButton aria-label="Add to Cart" onClick={() => onAddToCart(product.id, 1)}>
+        {/* <IconButton aria-label="Add to Cart" onClick={() => onAddToCart(product.id, 1)}> */}
+        <IconButton aria-label="Add to Cart" onClick={() => dispatch(handleAddToCart(product.id, 1))}>
           <AddShoppingCart />
         </IconButton>
       </CardActions>

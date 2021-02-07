@@ -16,6 +16,8 @@ import logo from './favicon.ico';
 const App = () => {
   const products = useSelector((state) => state.products);
   const cart = useSelector((state) => state.cart);
+  const order = useSelector((state) => state.order);
+  const errorMessage = useSelector((state) => state.errorMessage);
   const isServiceWorkerInitialized = useSelector((state) => state.serviceWorkerInitialized);
   const isServiceWorkerUpdated = useSelector((state) => state.serviceWorkerUpdated);
   const serviceWorkerRegistration = useSelector((state) => state.serviceWorkerRegistration);
@@ -37,13 +39,47 @@ const App = () => {
   };
 
   /*
+ const fetchProducts = async () => {
+    const { data } = await commerce.products.list();
+
+    setProducts(data);
+  };
+
+  const fetchCart = async () => {
+    setCart(await commerce.cart.retrieve());
+  };
+
+  const handleAddToCart = async (productId, quantity) => {
+    const item = await commerce.cart.add(productId, quantity);
+
+    setCart(item.cart);
+  };
+
+  const handleUpdateCartQty = async (lineItemId, quantity) => {
+    const response = await commerce.cart.update(lineItemId, { quantity });
+
+    setCart(response.cart);
+  };
+
+  const handleRemoveFromCart = async (lineItemId) => {
+    const response = await commerce.cart.remove(lineItemId);
+
+    setCart(response.cart);
+  };
+
+  const handleEmptyCart = async () => {
+    const response = await commerce.cart.empty();
+
+    setCart(response.cart);
+  };
+
   const refreshCart = async () => {
     const newCart = await commerce.cart.refresh();
 
     setCart(newCart);
   };
 
- const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
+  const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
     try {
       const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder);
 
@@ -53,6 +89,8 @@ const App = () => {
     } catch (error) {
       setErrorMessage(error.data.error.message);
     }
+  };
+
   }; */
 
   useEffect(() => {
@@ -70,6 +108,7 @@ const App = () => {
       {/* <div style={{ display: 'flex' }}> */}
       {/* <CssBaseline /> */}
       <Navbar totalItems={cart.total_items} />
+      {isServiceWorkerUpdated && isServiceWorkerInitialized && (
       <div className="App">
         <div className="App-alert">
           {isServiceWorkerInitialized && (
@@ -84,7 +123,6 @@ const App = () => {
           />
           )}
         </div>
-
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -94,6 +132,7 @@ const App = () => {
           <p>isServiceWorkerUpdated: {JSON.stringify(isServiceWorkerUpdated)}</p>
         </header>
       </div>
+      )}
       <Switch>
         <Route exact path="/MyStore">
           <Products products={products} /> {/*  onAddToCart={handleAddToCart}  */}
@@ -106,7 +145,7 @@ const App = () => {
           <Cart cart={cart} /> {/* handleUpdateCartQty={handleUpdateCartQty} handleRemoveFromCart={handleRemoveFromCart} handleEmptyCart={handleEmptyCart} */}
         </Route>
         <Route exact path="/MyStore/checkout">
-          <Checkout cart={cart} />
+          <Checkout cart={cart} order={order} errorMessage={errorMessage} />
         </Route>
       </Switch>
       {/* </div> */}

@@ -1,4 +1,4 @@
-import { FETCH_CART, ADD_TO_CART, UPDATE_CART_QTY, REMOVE_FROM_CART, EMPTY_CART } from '../constants/actionTypes';
+import { FETCH_CART, ADD_TO_CART, UPDATE_CART_QTY, REMOVE_FROM_CART, EMPTY_CART, REFRESH_CART } from '../constants/actionTypes';
 
 export default (carts = {}, action) => {
   switch (action.type) {
@@ -21,6 +21,8 @@ export default (carts = {}, action) => {
     case REMOVE_FROM_CART:
       return action.payload;
     case EMPTY_CART:
+      return action.payload;
+    case REFRESH_CART:
       return action.payload;
     default:
       return carts;

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { commerce } from '../lib/commerce';
 
-import { FETCH_CART, ADD_TO_CART, UPDATE_CART_QTY, REMOVE_FROM_CART, EMPTY_CART } from '../constants/actionTypes';
+import { FETCH_CART, ADD_TO_CART, UPDATE_CART_QTY, REMOVE_FROM_CART, EMPTY_CART, REFRESH_CART } from '../constants/actionTypes';
 
 export const fetchCart = () => async (dispatch) => {
   try {
@@ -51,4 +51,10 @@ export const handleEmptyCart = () => async (dispatch) => {
   } catch (error) {
     console.log(error.message);
   }
+};
+
+export const refreshCart = () => async (dispatch) => {
+  const cart = await commerce.cart.refresh();
+
+  dispatch({ type: REFRESH_CART, payload: cart });
 };
