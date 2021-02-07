@@ -3,7 +3,7 @@ import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } fro
 import { AddShoppingCart } from '@material-ui/icons';
 import { useDispatch } from 'react-redux';
 
-import { handleAddToCart } from '../../../actions/carts';
+import { handleAddToCart } from '../../../actions/cart';
 import useStyles from './styles';
 
 // const Product = ({ product, onAddToCart }) => {

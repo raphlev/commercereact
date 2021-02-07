@@ -5,9 +5,9 @@ import { FETCH_CART, ADD_TO_CART, UPDATE_CART_QTY, REMOVE_FROM_CART, EMPTY_CART,
 
 export const fetchCart = () => async (dispatch) => {
   try {
-    const { data } = await commerce.cart.retrieve();
+    const cart = await commerce.cart.retrieve();
 
-    dispatch({ type: FETCH_CART, payload: data });
+    dispatch({ type: FETCH_CART, payload: cart });
   } catch (error) {
     console.log(error.message);
   }
@@ -16,8 +16,8 @@ export const fetchCart = () => async (dispatch) => {
 export const handleAddToCart = (productId, quantity) => async (dispatch) => {
   try {
     // we can destructure it directly to { cart }:
-    const { cart } = await commerce.cart.add(productId, quantity);
-    dispatch({ type: ADD_TO_CART, payload: cart });
+    const item = await commerce.cart.add(productId, quantity);
+    dispatch({ type: ADD_TO_CART, payload: item.cart });
   } catch (error) {
     console.log(error.message);
   }
@@ -25,9 +25,9 @@ export const handleAddToCart = (productId, quantity) => async (dispatch) => {
 
 export const handleUpdateCartQty = (lineItemId, quantity) => async (dispatch) => {
   try {
-    const { cart } = await commerce.cart.update(lineItemId, { quantity });
+    const response = await commerce.cart.update(lineItemId, { quantity });
     // we can destructure it directly to { cart } or keep it like this:
-    dispatch({ type: UPDATE_CART_QTY, payload: cart });
+    dispatch({ type: UPDATE_CART_QTY, payload: response.cart });
   } catch (error) {
     console.log(error.message);
   }
@@ -35,9 +35,9 @@ export const handleUpdateCartQty = (lineItemId, quantity) => async (dispatch) =>
 
 export const handleRemoveFromCart = (lineItemId) => async (dispatch) => {
   try {
-    const { cart } = await commerce.cart.remove(lineItemId);
+    const response = await commerce.cart.remove(lineItemId);
     // we can destructure it directly to { cart } or keep it like this:
-    dispatch({ type: REMOVE_FROM_CART, payload: cart });
+    dispatch({ type: REMOVE_FROM_CART, payload: response.cart });
   } catch (error) {
     console.log(error.message);
   }
@@ -45,16 +45,16 @@ export const handleRemoveFromCart = (lineItemId) => async (dispatch) => {
 
 export const handleEmptyCart = () => async (dispatch) => {
   try {
-    const { cart } = commerce.cart.empty();
+    const response = await commerce.cart.empty();
     // we can destructure it directly to { cart } or keep it like this:
-    dispatch({ type: EMPTY_CART, payload: cart });
+    dispatch({ type: EMPTY_CART, payload: response.cart });
   } catch (error) {
     console.log(error.message);
   }
 };
 
 export const refreshCart = () => async (dispatch) => {
-  const cart = await commerce.cart.refresh();
+  const newCart = await commerce.cart.refresh();
 
-  dispatch({ type: REFRESH_CART, payload: cart });
+  dispatch({ type: REFRESH_CART, payload: newCart });
 };

@@ -1,7 +1,7 @@
 import { commerce } from '../lib/commerce';
 
 import { CAPTURE_CHECKOUT } from '../constants/actionTypes';
-import { refreshCart } from './carts';
+import { refreshCart } from './cart';
 import { setErrorMessage } from './errorMessage';
 
 export const handleCaptureCheckout = (checkoutTokenId, newOrder) => async (dispatch) => {

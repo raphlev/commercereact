@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Products, Navbar, Cart, Checkout } from './components';
 import Alert from './components/SWAlert/SWAlert';
 import { fetchProducts } from './actions/products';
-import { fetchCart } from './actions/carts';
+import { fetchCart } from './actions/cart';
 import { swInit } from './actions/swalert';
 import { SW_INIT, SW_UPDATE } from './constants/actionTypes';
 import './App.css';

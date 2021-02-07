@@ -3,7 +3,7 @@ import { Container, Typography, Button, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { handleEmptyCart } from '../../actions/carts';
+import { handleEmptyCart } from '../../actions/cart';
 import useStyles from './styles';
 import CartItem from './CartItem/CartItem';
 

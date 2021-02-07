@@ -1,6 +1,6 @@
 import { FETCH_CART, ADD_TO_CART, UPDATE_CART_QTY, REMOVE_FROM_CART, EMPTY_CART, REFRESH_CART } from '../constants/actionTypes';
 
-export default (carts = {}, action) => {
+export default (cart = {}, action) => {
   switch (action.type) {
     // case LIKE:
     //   return posts.map((post) => (post._id === action.payload._id ? action.payload : post));
@@ -25,6 +25,6 @@ export default (carts = {}, action) => {
     case REFRESH_CART:
       return action.payload;
     default:
-      return carts;
+      return cart;
   }
 };
