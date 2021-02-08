@@ -56,6 +56,9 @@ https://dashboard.chec.io/products
 3- Service Worker Alert: https://medium.com/better-programming/let-users-know-when-you-have-updated-your-service-worker-in-create-react-app-b0c2701995b3 + https://github.com/gglukmann/cra-sw
    OK: add swalert actions, reducer, update app.js, service worker registration
 
+4- voir version demo avec next.js: https://github.com/chec/commercejs-nextjs-demo-store
+
+
 ## Drawer Navbar todo.txt
 
 - https://material-ui.com/components/drawers/
