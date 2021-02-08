@@ -56,7 +56,19 @@ https://dashboard.chec.io/products
 3- Service Worker Alert: https://medium.com/better-programming/let-users-know-when-you-have-updated-your-service-worker-in-create-react-app-b0c2701995b3 + https://github.com/gglukmann/cra-sw
    OK: add swalert actions, reducer, update app.js, service worker registration
 
-4- voir version demo avec next.js: https://github.com/chec/commercejs-nextjs-demo-store
+4- voir version demo avec next.js: 
+- https://github.com/chec/commercejs-nextjs-demo-store
+- npm @chec/react-commercejs-hooks: https://www.npmjs.com/package/@chec/react-commercejs-hooks
+- Custom Checkout Fields | Commerce.js: https://www.youtube.com/watch?v=Jyy4XUH-2xA
+
+5- aure shopping cart javascript resources:
+- JavaScript Shopping Cart Tutorial for Beginners: https://www.youtube.com/watch?v=YeFzkC2awTM
+- E-Commerce JavaScript Tutorial - Shopping Cart from Scratch: https://www.youtube.com/watch?v=023Psne_-_4
+- Exemple comfy-house https://js-comfy-home-furniture-store.netlify.app/
+   https://github.com/search?q=js-comfy-house
+   https://github.com/ClownleeCodes/ComfyHouse-VanillaJs
+   https://github.com/john-smilga/js-comfy-house-parcel-setup
+   https://github.com/john-smilga/js-comfy-house-furniture-store
 
 
 ## Drawer Navbar todo.txt
