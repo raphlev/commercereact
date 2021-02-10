@@ -4,8 +4,7 @@ import React, { useEffect } from 'react';
 // import Navbar from './components/Navbar/Navbar';1
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Products, Navbar, Cart, Checkout } from './components';
-import Alert from './components/SWAlert/SWAlert';
+import { SWAlert, Products, Navbar, Cart, Checkout, Calendar } from './components';
 import { fetchProducts } from './actions/products';
 import { fetchCart } from './actions/cart';
 import { swInit } from './actions/swalert';
@@ -112,10 +111,10 @@ const App = () => {
       <div className="App">
         <div className="App-alert">
           {isServiceWorkerInitialized && (
-          <Alert text="Service Worker is initialized for the first time" type={SW_INIT} />
+          <SWAlert text="Service Worker is initialized for the first time" type={SW_INIT} />
           )}
           {isServiceWorkerUpdated && (
-          <Alert
+          <SWAlert
             text="There is a new version available."
             buttonText="Update"
             type={SW_UPDATE}
@@ -146,6 +145,9 @@ const App = () => {
         </Route>
         <Route exact path="/MyStore/checkout">
           <Checkout cart={cart} order={order} errorMessage={errorMessage} />
+        </Route>
+        <Route exact path="/MyStore/calendar">
+          <Calendar />
         </Route>
       </Switch>
       {/* </div> */}

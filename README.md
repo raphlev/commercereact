@@ -56,12 +56,20 @@ https://dashboard.chec.io/products
 3- Service Worker Alert: https://medium.com/better-programming/let-users-know-when-you-have-updated-your-service-worker-in-create-react-app-b0c2701995b3 + https://github.com/gglukmann/cra-sw
    OK: add swalert actions, reducer, update app.js, service worker registration
 
-4- voir version demo avec next.js: 
+4- Add Calendar
+
+Scoping CSS Classes to a Component in ReactJS Using CSS Modules:
+- https://0n3z3r0n3.medium.com/scoping-css-classes-to-a-component-in-reactjs-using-css-modules-c294dc6a0e02
+
+Add Calendar app from:
+- https://github.com/raphlev/React06_Calendar_From_VanillaJS
+
+4- Version demo avec next.js: 
 - https://github.com/chec/commercejs-nextjs-demo-store
 - npm @chec/react-commercejs-hooks: https://www.npmjs.com/package/@chec/react-commercejs-hooks
 - Custom Checkout Fields | Commerce.js: https://www.youtube.com/watch?v=Jyy4XUH-2xA
 
-5- aure shopping cart javascript resources:
+5- Autre shopping cart javascript resources:
 - JavaScript Shopping Cart Tutorial for Beginners: https://www.youtube.com/watch?v=YeFzkC2awTM
 - E-Commerce JavaScript Tutorial - Shopping Cart from Scratch: https://www.youtube.com/watch?v=023Psne_-_4
 - Exemple comfy-house https://js-comfy-home-furniture-store.netlify.app/
