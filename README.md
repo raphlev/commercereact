@@ -34,8 +34,11 @@ See web site: https://react-hook-form.com/
 
 
 ## commerce.js
-Register and Get Public Key from:
-https://dashboard.chec.io/settings/developer
+Register and Get Sandbox Key from:
+- https://dashboard.chec.io/settings/developer
+- Sandbox instead Public keys ensuring that transactions are only for sanbox, only for testing
+
+
 Set it to .env file:
 REACT_APP_CHEC_PUBLIC_KEY=xxxxxxxxxx
 
@@ -46,7 +49,7 @@ Add products:
 https://dashboard.chec.io/products
 
 
-1- 2:51:55 beg of stripes..
+1- 3:12  improvment of payment confirmation ..
 2- REDUX setup:
    OK: app.js, actions, reducer (voir reducer cart si besoin de modifier le state ), cart, paymentForm, checkoutform, ..
    A FAIRE: 
@@ -77,6 +80,37 @@ Add Calendar app from:
    https://github.com/ClownleeCodes/ComfyHouse-VanillaJs
    https://github.com/john-smilga/js-comfy-house-parcel-setup
    https://github.com/john-smilga/js-comfy-house-furniture-store
+
+
+## Stripe
+
+Go to stripe.com
+create an account
+verify your email
+go to stripe > Developers > API keys > Publishable key > copy it into .env
+https://dashboard.stripe.com/test/apikeys
+
+Stripe default credit card number = 4242 4242 4242 4242 04/24 242 42242
+
+## Commerce Payment method(s)
+
+go to commerce adding payment method: Settings > Payment Gateways
+- https://dashboard.chec.io/settings/payment
+Enter your credit card information in order for commerce.js to be able to connect to stripe - don't worry we will create a mock checkout process to complete transaction without taking money from credit card
+Then following methods are available:
+- stripe - 3% per transaction - + Stripe processing fees
+- Manual Payments - e.g. Cash on delivery, bank deposit - 3% per transaction
+- Square - 3% per transaction - + Square processing fees
+- Paypal - 3% per transaction - + PayPal processing fees
+- DWOLLA - 3% per transaction
+- Razorpay - 3% per transaction - + razorpay processing fees
+Enable Stripe
+- Here in this app only stripe web element is added inside PaymentForm.jsx using stripe sdk
+- copy stripe keys (public and secret keys) into chec.io dashboard getting it from https://dashboard.stripe.com/test/apikeys
+
+How to enable paypal:
+- From above https://dashboard.chec.io/settings/payment, enable paypal
+- https://commercejs.com/docs/guides/paypal-integration#example-implementation
 
 
 ## Drawer Navbar todo.txt
