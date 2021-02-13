@@ -3,8 +3,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 npx create-react-app my-app --template cra-template
+
 remove unceserrary files and folders
+
 configure Service worker: index.js --> serviceWorkerRegistration.register();
+
 configure redux action for Service Worker: https://medium.com/better-programming/let-users-know-when-you-have-updated-your-service-worker-in-create-react-app-b0c2701995b3
 
 # PWA
@@ -21,9 +24,13 @@ npx create-react-app ./
 ## Application Templates
 
 ECommerce Web Shop - Build & Deploy an Amazing App | React.js, Commerce.js, Stripe
+
 Youtube: https://www.youtube.com/watch?v=377AQ0y6LPA
+
 Github: https://github.com/adrianhajdin/project_e_commerce
+
 Styles: https://gist.github.com/adrianhajdin/9867aefce5318f27c95990553f428c6e
+
 Icon Image: https://i.ibb.co/Qp1SXBw/commerce.png
 
 ## Dependencies
@@ -35,18 +42,19 @@ See web site: https://react-hook-form.com/
 
 ## commerce.js
 Register and Get Sandbox Key from:
+
 - https://dashboard.chec.io/settings/developer
 - Sandbox instead Public keys ensuring that transactions are only for sanbox, only for testing
 
 
 Set it to .env file:
-REACT_APP_CHEC_PUBLIC_KEY=xxxxxxxxxx
+ - REACT_APP_CHEC_PUBLIC_KEY=xxxxxxxxxx
 
 Add shipping zone with shipping price: USA & Europe
-https://dashboard.chec.io/settings/shipping
+- https://dashboard.chec.io/settings/shipping
 
 Add products:
-https://dashboard.chec.io/products
+- https://dashboard.chec.io/products
 
 
 1- 3:12  improvment of payment confirmation ..
@@ -56,8 +64,9 @@ https://dashboard.chec.io/products
    - ajouter action/reucer pour Checkout checkoutToken+activeStep+shippingData
    - comparer avec la version JSMastery..
 
-3- Service Worker Alert: https://medium.com/better-programming/let-users-know-when-you-have-updated-your-service-worker-in-create-react-app-b0c2701995b3 + https://github.com/gglukmann/cra-sw
-   OK: add swalert actions, reducer, update app.js, service worker registration
+3- Service Worker Alert: 
+- https://medium.com/better-programming/let-users-know-when-you-have-updated-your-service-worker-in-create-react-app-b0c2701995b3 + https://github.com/gglukmann/cra-sw
+- OK: add swalert actions, reducer, update app.js, service worker registration
 
 4- Add Calendar
 
@@ -76,18 +85,22 @@ Add Calendar app from:
 - JavaScript Shopping Cart Tutorial for Beginners: https://www.youtube.com/watch?v=YeFzkC2awTM
 - E-Commerce JavaScript Tutorial - Shopping Cart from Scratch: https://www.youtube.com/watch?v=023Psne_-_4
 - Exemple comfy-house https://js-comfy-home-furniture-store.netlify.app/
-   https://github.com/search?q=js-comfy-house
-   https://github.com/ClownleeCodes/ComfyHouse-VanillaJs
-   https://github.com/john-smilga/js-comfy-house-parcel-setup
-   https://github.com/john-smilga/js-comfy-house-furniture-store
+  -  https://github.com/search?q=js-comfy-house
+  -  https://github.com/ClownleeCodes/ComfyHouse-VanillaJs
+  -  https://github.com/john-smilga/js-comfy-house-parcel-setup
+  -  https://github.com/john-smilga/js-comfy-house-furniture-store
 
 
 ## Stripe
 
 Go to stripe.com
+
 create an account
+
 verify your email
+
 go to stripe > Developers > API keys > Publishable key > copy it into .env
+
 https://dashboard.stripe.com/test/apikeys
 
 Stripe default credit card number = 4242 4242 4242 4242 04/24 242 42242
@@ -96,7 +109,9 @@ Stripe default credit card number = 4242 4242 4242 4242 04/24 242 42242
 
 go to commerce adding payment method: Settings > Payment Gateways
 - https://dashboard.chec.io/settings/payment
+
 Enter your credit card information in order for commerce.js to be able to connect to stripe - don't worry we will create a mock checkout process to complete transaction without taking money from credit card
+
 Then following methods are available:
 - stripe - 3% per transaction - + Stripe processing fees
 - Manual Payments - e.g. Cash on delivery, bank deposit - 3% per transaction
@@ -104,6 +119,7 @@ Then following methods are available:
 - Paypal - 3% per transaction - + PayPal processing fees
 - DWOLLA - 3% per transaction
 - Razorpay - 3% per transaction - + razorpay processing fees
+
 Enable Stripe
 - Here in this app only stripe web element is added inside PaymentForm.jsx using stripe sdk
 - copy stripe keys (public and secret keys) into chec.io dashboard getting it from https://dashboard.stripe.com/test/apikeys
