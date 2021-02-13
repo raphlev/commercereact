@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { useTheme } from '@material-ui/core/styles';
 import { Drawer, CssBaseline, AppBar, Toolbar, List, Typography, Badge, Divider, IconButton, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import { ShoppingCart, ChevronLeft as ChevronLeftIcon, ChevronRight as ChevronRightIcon, Menu as MenuIcon, Store as StoreIcon, MoveToInbox as InboxIcon, Mail as MailIcon } from '@material-ui/icons';
+import EventIcon from '@material-ui/icons/Event';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/commerce.png';
 import useStyles from './styles';
@@ -82,6 +83,10 @@ const Navbar = ({ totalItems }) => {
           </ListItem>
         </List>
         <Divider />
+        <ListItem component={Link} to="/MyStore/calendar" button key="MyCalendar">
+          <ListItemIcon><EventIcon /></ListItemIcon>
+          <ListItemText primary="MyCalendar" />
+        </ListItem>
         <List>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem button key={text}>
