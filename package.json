@@ -20,6 +20,7 @@
     "react-scripts": "4.0.1",
     "react-stripe-elements": "^6.1.2",
     "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "semantic-ui-react": "^2.0.1",
     "web-vitals": "^0.2.4",
