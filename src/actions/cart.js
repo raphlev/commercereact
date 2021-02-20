@@ -13,41 +13,49 @@ export const fetchCart = () => async (dispatch) => {
   }
 };
 
-export const handleAddToCart = (productId, quantity) => async (dispatch) => {
+export const handleAddToCart = (productId, quantity) => async (dispatch, getState) => {
   try {
     // we can destructure it directly to { cart }:
     const item = await commerce.cart.add(productId, quantity);
     dispatch({ type: ADD_TO_CART, payload: item.cart });
+
+    localStorage.setItem('react05Cart', JSON.stringify(getState().cart));
   } catch (error) {
     console.log(error.message);
   }
 };
 
-export const handleUpdateCartQty = (lineItemId, quantity) => async (dispatch) => {
+export const handleUpdateCartQty = (lineItemId, quantity) => async (dispatch, getState) => {
   try {
     const response = await commerce.cart.update(lineItemId, { quantity });
     // we can destructure it directly to { cart } or keep it like this:
     dispatch({ type: UPDATE_CART_QTY, payload: response.cart });
+
+    localStorage.setItem('react05Cart', JSON.stringify(getState().cart));
   } catch (error) {
     console.log(error.message);
   }
 };
 
-export const handleRemoveFromCart = (lineItemId) => async (dispatch) => {
+export const handleRemoveFromCart = (lineItemId) => async (dispatch, getState) => {
   try {
     const response = await commerce.cart.remove(lineItemId);
     // we can destructure it directly to { cart } or keep it like this:
     dispatch({ type: REMOVE_FROM_CART, payload: response.cart });
+
+    localStorage.setItem('react05Cart', JSON.stringify(getState().cart));
   } catch (error) {
     console.log(error.message);
   }
 };
 
-export const handleEmptyCart = () => async (dispatch) => {
+export const handleEmptyCart = () => async (dispatch, getState) => {
   try {
     const response = await commerce.cart.empty();
     // we can destructure it directly to { cart } or keep it like this:
     dispatch({ type: EMPTY_CART, payload: response.cart });
+
+    localStorage.setItem('react05Cart', JSON.stringify(getState().cart));
   } catch (error) {
     console.log(error.message);
   }
