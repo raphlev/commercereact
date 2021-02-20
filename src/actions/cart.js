@@ -13,7 +13,7 @@ export const fetchCart = () => async (dispatch) => {
   }
 };
 
-export const handleAddToCart = (productId, quantity) => async (dispatch, getState) => {
+export const handleAddToCart = (productId, quantity) => async (dispatch/* , getState */) => {
   try {
     // we can destructure it directly to { cart }:
     const item = await commerce.cart.add(productId, quantity);
@@ -25,7 +25,7 @@ export const handleAddToCart = (productId, quantity) => async (dispatch, getStat
   }
 };
 
-export const handleUpdateCartQty = (lineItemId, quantity) => async (dispatch, getState) => {
+export const handleUpdateCartQty = (lineItemId, quantity) => async (dispatch/* , getState */) => {
   try {
     const response = await commerce.cart.update(lineItemId, { quantity });
     // we can destructure it directly to { cart } or keep it like this:
@@ -37,7 +37,7 @@ export const handleUpdateCartQty = (lineItemId, quantity) => async (dispatch, ge
   }
 };
 
-export const handleRemoveFromCart = (lineItemId) => async (dispatch, getState) => {
+export const handleRemoveFromCart = (lineItemId) => async (dispatch/* , getState */) => {
   try {
     const response = await commerce.cart.remove(lineItemId);
     // we can destructure it directly to { cart } or keep it like this:
@@ -49,7 +49,7 @@ export const handleRemoveFromCart = (lineItemId) => async (dispatch, getState) =
   }
 };
 
-export const handleEmptyCart = () => async (dispatch, getState) => {
+export const handleEmptyCart = () => async (dispatch/* , getState */) => {
   try {
     const response = await commerce.cart.empty();
     // we can destructure it directly to { cart } or keep it like this:
