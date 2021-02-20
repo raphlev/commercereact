@@ -19,7 +19,7 @@ export const handleAddToCart = (productId, quantity) => async (dispatch, getStat
     const item = await commerce.cart.add(productId, quantity);
     dispatch({ type: ADD_TO_CART, payload: item.cart });
 
-    localStorage.setItem('react05Cart', JSON.stringify(getState().cart));
+    // localStorage.setItem('react05Cart', JSON.stringify(getState().cart));
   } catch (error) {
     console.log(error.message);
   }
@@ -31,7 +31,7 @@ export const handleUpdateCartQty = (lineItemId, quantity) => async (dispatch, ge
     // we can destructure it directly to { cart } or keep it like this:
     dispatch({ type: UPDATE_CART_QTY, payload: response.cart });
 
-    localStorage.setItem('react05Cart', JSON.stringify(getState().cart));
+    // localStorage.setItem('react05Cart', JSON.stringify(getState().cart));
   } catch (error) {
     console.log(error.message);
   }
@@ -43,7 +43,7 @@ export const handleRemoveFromCart = (lineItemId) => async (dispatch, getState) =
     // we can destructure it directly to { cart } or keep it like this:
     dispatch({ type: REMOVE_FROM_CART, payload: response.cart });
 
-    localStorage.setItem('react05Cart', JSON.stringify(getState().cart));
+    // localStorage.setItem('react05Cart', JSON.stringify(getState().cart));
   } catch (error) {
     console.log(error.message);
   }
@@ -55,7 +55,7 @@ export const handleEmptyCart = () => async (dispatch, getState) => {
     // we can destructure it directly to { cart } or keep it like this:
     dispatch({ type: EMPTY_CART, payload: response.cart });
 
-    localStorage.setItem('react05Cart', JSON.stringify(getState().cart));
+    // localStorage.setItem('react05Cart', JSON.stringify(getState().cart));
   } catch (error) {
     console.log(error.message);
   }

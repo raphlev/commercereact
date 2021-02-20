@@ -16,17 +16,17 @@ import App from './App';
 // 2 methods, either with window variable (commented below) or using redux-devtools-extension (implementred here below)
 // For prod, see github extension documentation
 
-const cartItemsInLocalStorage = localStorage.getItem('react05Cart')
-  ? JSON.parse(localStorage.getItem('react05Cart'))
-  : [];
+// const cartItemsInLocalStorage = localStorage.getItem('react05Cart')
+//   ? JSON.parse(localStorage.getItem('react05Cart'))
+//   : [];
 
-const INITIAL_STATE = {
-  cart: cartItemsInLocalStorage,
-};
+// const INITIAL_STATE = {
+//   cart: cartItemsInLocalStorage,
+// };
 
 // eslint-disable-next-line no-underscore-dangle
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, INITIAL_STATE, /* preloadedState, */ composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(reducers, /* INITIAL_STATE, */ /* preloadedState, */ composeWithDevTools(applyMiddleware(thunk)));
 // const store = createStore(reducers, /* preloadedState, */ composeEnhancers(applyMiddleware(thunk)));
 // const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
